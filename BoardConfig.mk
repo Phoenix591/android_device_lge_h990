@@ -36,7 +36,7 @@ TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_CONFIG := twrp_defconfig
 TARGET_KERNEL_DEVICE_DEFCONFIG := device_lge_h990
 
-TARGET_PREBUILT_KERNEL := $(DEVICE_TREE)/Image-h990.lz4-dtb
+TARGET_PREBUILT_KERNEL := $(DEVICE_TREE)/Image-h990ds.lz4-dtb
 
 # Boot image
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 user_debug=31 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff androidboot.hardware=elsa androidboot.bootdevice=624000.ufshc androidboot.selinux=permissive
@@ -58,6 +58,8 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # TWRP specific build flags
+BOOTLOADER_MESSAGE_OFFSET := 128
+BOARD_GLOBAL_CFLAGS := -DBOARD_RECOVERY_BLDRMSG_OFFSET=128
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
